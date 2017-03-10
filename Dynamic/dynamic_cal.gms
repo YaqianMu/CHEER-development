@@ -5,10 +5,11 @@
 *simu=0,calibration; simu_s=1,GDP endogenous,simu_s=0,GDP exdogenous˰
 simu_s =0;
 
-tax_s =0;
+tax_s(sub_elec)  =1;
 
 re_s=1;
-
+*== switch for learning curve *=on
+bata(sub_elec)$(1-switch_learn) = 1;
 
 *options solprint=off ;
 loop(t$(ord(t) le card(t)),
@@ -31,23 +32,20 @@ xscale = xscale_t(t);
 rgdp0$(simu_s eq 0)=rgdp_b(t);
 ret0(sub_elec)=renewable_scn(t,sub_elec,"BAU");
 
-clim = 0;
+*==============parameter for policy shock===============
+clim=0;
 
-*clim0= clim_t(t);
+tax_s(cfe)=1;
 
-*==== higher subsidy for renewable
-
-*taxelec0(sub_elec)$(wsb(sub_elec) and ord(t) eq 2)=100*taxelec0(sub_elec);
-*taxelec0("wind")$(ord(t) eq 2)=100*taxelec0("wind");
-*taxelec0("solar")$(ord(t) eq 2)=100*taxelec0("solar");
-*taxelec0("biomass")$(ord(t) eq 2)=100*taxelec0("biomass");
+Switch_fee=0;
 
 *==code for learning curve
 
-mkup_t(t,sub_elec)$(ord(t) eq 1) = ((elecout_t(t,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
+*mkup_t(t,sub_elec)$(ord(t) eq 1) = ((elecout_t(t,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
 
-mkup_t(t,sub_elec)$(ord(t) gt 1) = ((elecout_t(t-1,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
+*mkup_t(t,sub_elec)$(ord(t) gt 1) = ((elecout_t(t-1,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
 
+mkup_t(t,sub_elec)=1;
 emkup(sub_elec)=mkup_t(t,sub_elec);
 
 
