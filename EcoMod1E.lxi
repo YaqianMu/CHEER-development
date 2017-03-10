@@ -1,0 +1,55 @@
+B 2 C o m p i l a t i o n
+B 486 E x e c u t i o n
+I 487 alphaH
+I 494 alphaK
+I 500 alphaL
+I 506 aF
+B 514 Equation Listing    SOLVE EcoMod1E Using NLP From line 355
+D 515 EQC
+D 525 EQK
+D 534 EQL
+D 543 EQPROFIT
+D 555 EQMARKETK
+D 560 EQMARKETC
+D 567 EQINCOME
+D 572 OBJECTIVE
+B 579 Column Listing      SOLVE EcoMod1E Using NLP From line 355
+E 580 PK
+E 594 PD
+E 607 XD
+E 624 K
+E 639 L
+E 652 C
+E 665 Y
+E 674 TRICK
+B 683 Model Statistics    SOLVE EcoMod1E Using NLP From line 355
+B 701 Solution Report     SOLVE EcoMod1E Using NLP From line 355
+F 722 EQC
+F 729 EQK
+F 736 EQL
+F 744 EQPROFIT
+F 749 EQMARKETK
+F 757 EQMARKETC
+F 762 EQINCOME
+F 763 OBJECTIVE
+G 767 PK
+G 773 PD
+G 780 XD
+G 787 K
+G 794 L
+G 801 C
+G 808 Y
+G 812 TRICK
+B 824 E x e c u t i o n
+I 827 KS
+I 829 LS
+I 831 PK
+I 832 PL
+I 833 PD
+I 838 K
+I 843 L
+I 848 XD
+I 853 C
+I 859 Y
+I 860 U
+I 862 walras

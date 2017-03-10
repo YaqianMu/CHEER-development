@@ -1,0 +1,345 @@
+
+--- Job EcoMod1E.gms Start 03/03/17 09:16:13 24.4.6 r52609 WEX-WEI x86 64bit/MS Windows
+GAMS 24.4.6   Copyright (C) 1987-2015 GAMS Development. All rights reserved
+Licensee: Yaqian Mu                                      G150107:0436AO-WIN
+          Tsinghua University, Res. Centre for International EnvironmDC6727
+          License for teaching and research at degree granting institutions
+--- Starting compilation
+--- EcoMod1E.gms(469) 3 Mb
+--- Starting execution: elapsed 0:00:00.010
+--- EcoMod1E.gms(353) 4 Mb
+--- Generating NLP model EcoMod1E
+--- EcoMod1E.gms(355) 6 Mb
+---   13 rows  13 columns  37 non-zeroes
+---   66 nl-code  20 nl-non-zeroes
+--- EcoMod1E.gms(355) 4 Mb
+--- Executing PATHNLP: elapsed 0:00:00.021
+
+PATH-NLP         24.4.6 r52609 Released Jun 26, 2015 WEI x86 64bit/MS Windows 
+
+Hessian lowTri size: 9
+Hessian   diag size: 1
+Hessian  total size: 17
+NLP size: 0 obj coefs, 12 rows, 12 cols, 36 non-zeros, 23.08% dense.
+MCP size: 24 rows/cols, 89 non-zeros, 15.45% dense.
+
+Path 4.7.02 (Fri Jun 26 15:39:32 2015)
+Written by Todd Munson, Steven Dirkse, and Michael Ferris
+
+
+INITIAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  2.2000e+002 var: (Y)
+Maximum of F. . . . . . . . . .  5.1700e+002 eqn: (EQINCOME)
+Maximum of Grad F . . . . . . .  1.6000e+002 eqn: (EQPROFIT(sec1))
+                                            var: (PD(sec1))
+
+INITIAL JACOBIAN NORM STATISTICS
+Maximum Row Norm. . . . . . . .  4.0438e+002 eqn: (dLd_PK)
+Minimum Row Norm. . . . . . . .  2.0000e+000 eqn: (dLd_C(sec1))
+Maximum Column Norm . . . . . .  4.0438e+002 var: (PK)
+Minimum Column Norm . . . . . .  2.0000e+000 var: (C(sec1))
+
+Crash Log
+major  func  diff  size  residual    step       prox   (label)
+    0     0             6.5412e+002             0.0e+000 (EQINCOME)
+    1     7     1    23 6.4503e+002  6.9e-002    6.5e+000 (EQINCOME)
+pn_search terminated: no basis change.
+
+Major Iteration Log
+major minor  func  grad  residual    step  type prox    inorm  (label)
+    0     0     8     2 6.4503e+002           I 5.9e+000 5.1e+002 (EQINCOME)
+    1     2    13     3 5.5090e+002  3.3e-001 SB 2.4e+000 4.5e+002 (EQINCOME)
+    2     1    19     4 5.7355e+002  2.1e-001 SB 9.4e-001 3.9e+002 (EQINCOME)
+    3     1    20     5 3.3252e+003  1.0e+000 SD 3.8e-001 3.2e+003 (dLd_PD(sec1))
+    4    10    21     6 2.6552e+003  1.0e+000 RO 1.5e-001 2.0e+003 (dLd_PD(sec1))
+    5     3    22     7 2.6184e+004  1.0e+000 SD 6.0e-002 2.6e+004 (dLd_PK)
+    6     5    23     8 1.0628e+004  1.0e+000 SD 2.4e-002 9.6e+003 (dLd_PK)
+    7     3    24     9 8.3156e+002  1.0e+000 SO 9.6e-003 8.3e+002 (dLd_PD(sec1))
+    8     1    25    10 9.2267e+002  1.0e+000 SO 3.9e-003 8.3e+002 (dLd_C(sec2))
+    9     1    26    11 1.6502e+002  1.0e+000 SM 1.5e-003 1.5e+002 (EQC(sec2))
+   10     1    28    12 2.7622e+003  8.0e-001 SB 6.2e-004 2.6e+003 (dLd_C(sec2))
+   11     1    29    13 1.0132e+002  1.0e+000 SM 2.5e-004 1.0e+002 (dLd_PD(sec2))
+   12     1    32    14 2.3803e+003  6.4e-001 SB 9.9e-005 2.3e+003 (dLd_C(sec2))
+   13     1    33    15 5.4274e+001  1.0e+000 SM 4.0e-005 5.4e+001 (dLd_PD(sec2))
+   14     1    36    16 1.8489e+003  6.4e-001 SB 1.6e-005 1.8e+003 (dLd_C(sec2))
+   15     1    37    17 3.1342e+001  1.0e+000 SM 6.3e-006 3.1e+001 (dLd_PD(sec2))
+   16     1    40    18 1.4237e+003  6.4e-001 SB 2.5e-006 1.4e+003 (dLd_C(sec2))
+   17     1    41    19 2.1882e+001  1.0e+000 SM 1.0e-006 2.1e+001 (dLd_PD(sec2))
+   18     1    44    20 1.1981e+003  6.4e-001 SB 4.0e-007 1.2e+003 (dLd_C(sec2))
+   19     1    45    21 1.4598e+001  1.0e+000 SM 1.6e-007 1.3e+001 (dLd_PD(sec2))
+   20     1    49    22 3.5792e+002  5.1e-001 SB 6.5e-008 3.5e+002 (dLd_C(sec2))
+   21     1    52    23 6.5535e+002  6.4e-001 SB 2.6e-008 6.4e+002 (dLd_C(sec2))
+   22     1    53    24 5.4887e+002  1.0e+000 SM 1.0e-008 5.4e+002 (dLd_C(sec2))
+   23     1    54    25 1.9100e+002  1.0e+000 SM 4.1e-009 1.9e+002 (dLd_C(sec2))
+   24     1    56    26 4.1253e+002  8.0e-001 SB 1.7e-009 4.0e+002 (dLd_C(sec2))
+   25     1    57    27 7.3154e+001  1.0e+000 SM 6.6e-010 7.1e+001 (dLd_C(sec2))
+   26     1    59    28 3.5178e+002  8.0e-001 SB 2.7e-010 3.4e+002 (dLd_C(sec2))
+   27     1    60    29 6.3922e+000  1.0e+000 SM 1.1e-010 3.6e+000 (EQMARKETC(sec2))
+   28     1    61    30 5.0919e+000  1.0e+000 SO 6.4e-001 3.6e+000 (EQMARKETC(sec2))
+   29     1    62    31 5.0919e+000  1.0e+000 SO 2.6e-001 3.6e+000 (EQMARKETC(sec2))
+   30     1    63    32 5.0919e+000  1.0e+000 SO 1.0e-001 3.6e+000 (EQMARKETC(sec2))
+   31     1    64    33 5.1518e+000  1.0e+000 SO 4.1e-002 3.6e+000 (EQMARKETC(sec2))
+   32     1    65    34 5.1035e+000  1.0e+000 SO 1.6e-002 3.6e+000 (EQMARKETC(sec2))
+   33     1    66    35 5.0959e+000  1.0e+000 SO 6.5e-003 3.6e+000 (EQMARKETC(sec2))
+   34     1    67    36 5.0922e+000  1.0e+000 SM 2.6e-003 3.6e+000 (EQMARKETC(sec2))
+   35     1    68    37 5.0921e+000  1.0e+000 SM 1.0e-003 3.6e+000 (EQMARKETC(sec2))
+   36     1    69    38 5.0920e+000  1.0e+000 SM 4.2e-004 3.6e+000 (EQMARKETC(sec2))
+   37     1    70    39 5.0919e+000  1.0e+000 SM 1.7e-004 3.6e+000 (EQMARKETC(sec2))
+   38     1    71    40 5.0919e+000  1.0e+000 SM 6.7e-005 3.6e+000 (EQMARKETC(sec2))
+   39     1    72    41 5.0919e+000  1.0e+000 SM 2.7e-005 3.6e+000 (EQMARKETC(sec2))
+   40     1    73    42 5.0919e+000  1.0e+000 SM 1.1e-005 3.6e+000 (EQMARKETC(sec2))
+   41     1    74    43 5.0919e+000  1.0e+000 SM 4.3e-006 3.6e+000 (EQMARKETC(sec2))
+   42     1    75    44 5.0919e+000  1.0e+000 SM 1.7e-006 3.6e+000 (EQMARKETC(sec2))
+   43     1    76    45 5.0919e+000  1.0e+000 SM 6.9e-007 3.6e+000 (EQMARKETC(sec2))
+   44     1    77    46 5.0919e+000  1.0e+000 SM 2.7e-007 3.6e+000 (EQMARKETC(sec2))
+   45     1    78    47 5.0919e+000  1.0e+000 SM 1.1e-007 3.6e+000 (EQMARKETC(sec2))
+   46     1    79    48 5.0919e+000  1.0e+000 SM 4.4e-008 3.6e+000 (EQMARKETC(sec2))
+   47     1    84    49 5.0919e+000  3.3e-001 SB 1.8e-008 3.6e+000 (EQMARKETC(sec2))
+   48     1    93    50 5.0919e+000  2.3e-002 SB 7.0e-009 3.6e+000 (EQMARKETC(sec2))
+   49     1   105    51 5.0919e+000  2.6e-004 SB 2.8e-009 3.6e+000 (EQMARKETC(sec2))
+   50     1   119    52 5.0919e+000  1.2e-006 SB 1.1e-009 3.6e+000 (EQMARKETC(sec2))
+   51     1   133    53 5.0919e+000  1.2e-006 SB 4.5e-010 3.6e+000 (EQMARKETC(sec2))
+   52     1   146    54 5.0919e+000  4.4e-005 SB 1.8e-010 3.6e+000 (EQMARKETC(sec2))
+   53     1   147    55 5.0919e+000  1.0e+000 SO 5.1e-001 3.6e+000 (EQMARKETC(sec2))
+   54     1   148    56 5.0919e+000  1.0e+000 SO 2.0e-001 3.6e+000 (EQMARKETC(sec2))
+   55     1   149    57 5.3234e+000  1.0e+000 SD 8.1e-002 3.6e+000 (EQMARKETC(sec2))
+   56     1   150    58 5.1267e+000  1.0e+000 SD 3.3e-002 3.6e+000 (EQMARKETC(sec2))
+   57     1   151    59 5.1257e+000  1.0e+000 SD 1.3e-002 3.6e+000 (EQMARKETC(sec2))
+   58     1   164    60 5.0919e+000  4.4e-005 SW 2.0e-001 3.6e+000 (EQMARKETC(sec2))
+   59     1   165    61 6.1155e+000  1.0e+000 SD 8.1e-002 3.6e+000 (EQMARKETC(sec2))
+   60     1   166    62 5.1334e+000  1.0e+000 SD 3.3e-002 3.6e+000 (EQMARKETC(sec2))
+   61     1   167    63 5.1108e+000  1.0e+000 SD 1.3e-002 3.6e+000 (EQMARKETC(sec2))
+   62     1   179    64 5.0919e+000  2.6e-004 SW 2.0e-001 3.6e+000 (EQMARKETC(sec2))
+   63     1   180    65 5.2223e+000  1.0e+000 SD 8.1e-002 3.6e+000 (EQMARKETC(sec2))
+   64     1   181    66 5.2011e+000  1.0e+000 SD 3.3e-002 3.6e+000 (EQMARKETC(sec2))
+   65     1   182    67 5.1181e+000  1.0e+000 SD 1.3e-002 3.6e+000 (EQMARKETC(sec2))
+   66     1   195    68 5.0919e+000  4.4e-005 SW 2.0e-001 3.6e+000 (EQMARKETC(sec2))
+   67     1   196    69 5.2626e+000  1.0e+000 SD 8.1e-002 3.6e+000 (EQMARKETC(sec2))
+   68     1   197    70 6.5049e+000  1.0e+000 SD 3.3e-002 4.0e+000 (dLd_PK)
+   69     1   198    71 5.0976e+000  1.0e+000 SD 1.3e-002 3.6e+000 (EQMARKETC(sec2))
+   70     1   211    72 5.0919e+000  4.4e-005 SW 2.0e-001 3.6e+000 (EQMARKETC(sec2))
+   71     1   212    73 5.1925e+000  1.0e+000 SD 8.1e-002 3.6e+000 (EQMARKETC(sec2))
+   72     1   213    74 5.0923e+000  1.0e+000 SD 3.3e-002 3.6e+000 (EQMARKETC(sec2))
+   73     1   214    75 5.1444e+000  1.0e+000 SD 1.3e-002 3.6e+000 (EQMARKETC(sec2))
+   74     1   228    76 5.0919e+000  1.2e-006 SW 2.0e-001 3.6e+000 (EQMARKETC(sec2))
+   75     1   229    77 6.1150e+000  1.0e+000 SD 8.1e-002 3.6e+000 (EQMARKETC(sec2))
+   76     1   230    78 5.3650e+000  1.0e+000 SD 3.3e-002 3.6e+000 (EQMARKETC(sec2))
+   77     1   231    79 5.1050e+000  1.0e+000 SD 1.3e-002 3.6e+000 (EQMARKETC(sec2))
+
+Restart Log
+proximal_perturbation 0
+crash_method none
+crash_perturb yes
+nms_initial_reference_factor 2
+lemke_search_type slack
+proximal_perturbation 1.0000e-001
+
+Major Iteration Log
+major minor  func  grad  residual    step  type prox    inorm  (label)
+   77     0   233    80 6.5412e+002           R 1.0e-001 5.2e+002 (EQINCOME)
+   78     2   241    81 6.3663e+002  5.5e-002 SB 4.0e-002 4.9e+002 (EQINCOME)
+   79     1   249    82 7.0651e+002  5.5e-002 SB 1.6e-002 4.6e+002 (EQINCOME)
+   80     1   258    83 7.3235e+002  2.3e-002 SB 6.4e-003 4.5e+002 (EQINCOME)
+   81     1   267    84 8.1665e+002  2.3e-002 SB 2.6e-003 5.7e+002 (dLd_PD(sec1))
+   82     1   277    85 8.4687e+002  9.2e-003 SB 1.0e-003 6.1e+002 (dLd_PD(sec1))
+   83     1   288    86 8.4803e+002  1.5e-003 SB 4.1e-004 6.1e+002 (dLd_PD(sec1))
+   84     1   299    87 8.5285e+002  1.5e-003 SB 1.6e-004 6.2e+002 (dLd_PD(sec1))
+   85     1   310    88 8.6676e+002  1.5e-003 SB 6.6e-005 6.3e+002 (dLd_PD(sec1))
+   86     1   321    89 9.0374e+002  1.5e-003 SB 2.6e-005 6.7e+002 (dLd_PD(sec1))
+   87     1   333    90 9.0620e+002  2.6e-004 SB 1.0e-005 6.8e+002 (dLd_PD(sec1))
+   88     1   347    91 9.0620e+002  1.2e-006 SB 4.2e-006 6.8e+002 (dLd_PD(sec1))
+   89     1   361    92 9.0620e+002  1.2e-006 SB 1.7e-006 6.8e+002 (dLd_PD(sec1))
+   90     1   375    93 9.0620e+002  1.2e-006 SB 6.7e-007 6.8e+002 (dLd_PD(sec1))
+   91     1   390    94 9.0620e+002  3.5e-008 SB 2.7e-007 6.8e+002 (dLd_PD(sec1))
+   92     1   405    95 9.0619e+002  3.5e-008 SB 1.1e-007 6.8e+002 (dLd_PD(sec1))
+   93     1   420    96 9.0619e+002  3.5e-008 SB 4.3e-008 6.8e+002 (dLd_PD(sec1))
+   94     1   435    97 9.0619e+002  3.5e-008 SB 1.7e-008 6.8e+002 (dLd_PD(sec1))
+   95     1   463    98 6.1682e+002  1.5e-006 SG 4.0e-002 4.7e+002 (EQINCOME)
+   96     1   472    99 6.1481e+002  2.3e-002 SB 1.6e-002 4.6e+002 (EQINCOME)
+   97     1   482   100 6.1437e+002  9.2e-003 SB 6.4e-003 4.6e+002 (EQINCOME)
+   98     1   493   101 6.1379e+002  1.5e-003 SB 2.6e-003 4.6e+002 (EQINCOME)
+   99     1   504   102 6.1375e+002  1.5e-003 SB 1.0e-003 4.6e+002 (EQINCOME)
+  100     1   515   103 6.1510e+002  1.5e-003 SB 4.1e-004 4.6e+002 (EQINCOME)
+  101     1   527   104 6.1510e+002  2.6e-004 SB 1.6e-004 4.6e+002 (EQINCOME)
+  102     1   539   105 6.1535e+002  2.6e-004 SB 6.6e-005 4.6e+002 (EQINCOME)
+  103     1   551   106 6.1621e+002  2.6e-004 SB 2.6e-005 4.6e+002 (EQINCOME)
+  104     1   564   107 6.1626e+002  4.4e-005 SB 1.0e-005 4.6e+002 (EQINCOME)
+  105     1   577   108 6.1641e+002  4.4e-005 SB 4.2e-006 4.6e+002 (EQINCOME)
+  106     1   591   109 6.1641e+002  1.2e-006 SB 1.7e-006 4.6e+002 (EQINCOME)
+  107     1   606   110 6.1641e+002  3.5e-008 SB 6.7e-007 4.6e+002 (EQINCOME)
+  108     1   621   111 6.1641e+002  3.5e-008 SB 2.7e-007 4.6e+002 (EQINCOME)
+  109     1   636   112 6.1641e+002  3.5e-008 SB 1.1e-007 4.6e+002 (EQINCOME)
+  110     1   651   113 6.1641e+002  3.5e-008 SB 4.3e-008 4.6e+002 (EQINCOME)
+  111     1   679   114 5.9597e+002  1.5e-006 SG 1.0e-003 4.5e+002 (EQINCOME)
+  112     1   691   115 5.9587e+002  2.6e-004 SB 4.1e-004 4.5e+002 (EQINCOME)
+  113     1   703   116 5.9587e+002  2.6e-004 SB 1.6e-004 4.5e+002 (EQINCOME)
+  114     1   716   117 5.9585e+002  4.4e-005 SB 6.6e-005 4.5e+002 (EQINCOME)
+  115     1   729   118 5.9585e+002  4.4e-005 SB 2.6e-005 4.5e+002 (EQINCOME)
+  116     1   742   119 5.9589e+002  4.4e-005 SB 1.0e-005 4.5e+002 (EQINCOME)
+  117     1   756   120 5.9589e+002  1.2e-006 SB 4.2e-006 4.5e+002 (EQINCOME)
+  118     1   770   121 5.9589e+002  1.2e-006 SB 1.7e-006 4.5e+002 (EQINCOME)
+  119     1   784   122 5.9589e+002  1.2e-006 SB 6.7e-007 4.5e+002 (EQINCOME)
+  120     1   798   123 5.9589e+002  1.2e-006 SB 2.7e-007 4.5e+002 (EQINCOME)
+  121     1   812   124 5.9590e+002  1.2e-006 SB 1.1e-007 4.5e+002 (EQINCOME)
+  122     1   827   125 5.9590e+002  3.5e-008 SB 4.3e-008 4.5e+002 (EQINCOME)
+  123     1   855   126 5.7017e+002  1.5e-006 SG 2.6e-005 4.4e+002 (EQINCOME)
+  124     1   869   127 5.7017e+002  1.2e-006 SB 1.0e-005 4.4e+002 (EQINCOME)
+  125     1   883   128 5.7017e+002  1.2e-006 SB 4.2e-006 4.4e+002 (EQINCOME)
+  126     1   897   129 5.7017e+002  1.2e-006 SB 1.7e-006 4.4e+002 (EQINCOME)
+  127     1   911   130 5.7017e+002  1.2e-006 SB 6.7e-007 4.4e+002 (EQINCOME)
+  128     1   925   131 5.7017e+002  1.2e-006 SB 2.7e-007 4.4e+002 (EQINCOME)
+  129     1   940   132 5.7017e+002  3.5e-008 SB 1.1e-007 4.4e+002 (EQINCOME)
+  130     1   955   133 5.7017e+002  3.5e-008 SB 4.3e-008 4.4e+002 (EQINCOME)
+  131     1   970   134 5.7017e+002  3.5e-008 SB 1.7e-008 4.4e+002 (EQINCOME)
+  132     1   985   135 5.7017e+002  3.5e-008 SB 6.9e-009 4.4e+002 (EQINCOME)
+  133     1  1000   136 5.7017e+002  3.5e-008 SB 2.7e-009 4.4e+002 (EQINCOME)
+  134     1  1028   137 5.4710e+002  1.5e-006 SG 6.7e-007 4.2e+002 (EQINCOME)
+  135     1  1043   138 5.4710e+002  3.5e-008 SB 2.7e-007 4.2e+002 (EQINCOME)
+  136     1  1058   139 5.4710e+002  3.5e-008 SB 1.1e-007 4.2e+002 (EQINCOME)
+  137     1  1073   140 5.4710e+002  3.5e-008 SB 4.3e-008 4.2e+002 (EQINCOME)
+  138     1  1088   141 5.4710e+002  3.5e-008 SB 1.7e-008 4.2e+002 (EQINCOME)
+  139     1  1103   142 5.4710e+002  3.5e-008 SB 6.9e-009 4.2e+002 (EQINCOME)
+  140     1  1131   143 5.3663e+002  1.5e-006 SG 1.7e-008 4.1e+002 (EQINCOME)
+
+Restart Log
+proximal_perturbation 0
+crash_method none
+crash_perturb no
+nms_initial_reference_factor 10
+nms_memory_size 2
+nms_mstep_frequency 1
+lemke_search_type slack
+
+Major Iteration Log
+major minor  func  grad  residual    step  type prox    inorm  (label)
+  140     0  1160   144 6.5412e+002           R 0.0e+000 5.2e+002 (EQINCOME)
+  141     2  1161   145 6.5412e+002  1.0e+000 RM 0.0e+000 5.2e+002 (EQINCOME)
+  142     4  1162   146 6.5412e+002  1.0e+000 RM 0.0e+000 5.2e+002 (EQINCOME)
+  143     4  1165   147 6.5412e+002  6.4e-001 RB 0.0e+000 5.2e+002 (EQINCOME)
+  144     2  1166   148 6.5412e+002  1.0e+000 RM 0.0e+000 5.2e+002 (EQINCOME)
+  145     4  1167   149 6.5412e+002  1.0e+000 RM 0.0e+000 5.2e+002 (EQINCOME)
+  146    20  1181   150 6.3664e+002  1.5e-006 RG 0.0e+000 5.0e+002 (EQINCOME)
+  147     2  1182   151 6.3664e+002  1.0e+000 RM 0.0e+000 5.0e+002 (EQINCOME)
+  148     4  1189   152 6.3664e+002  1.3e-001 RB 0.0e+000 5.0e+002 (EQINCOME)
+  149     4  1199   153 6.3664e+002  9.2e-003 RB 0.0e+000 5.0e+002 (EQINCOME)
+  150     4  1207   154 6.3664e+002  5.5e-002 RB 0.0e+000 5.0e+002 (EQINCOME)
+  151    20  1208   155 6.1924e+002  1.0e+000 RM 0.0e+000 6.0e+002 (EQINCOME)
+  152     6  1224   156 6.1924e+002  1.2e-009 RG 0.0e+000 6.0e+002 (EQINCOME)
+  153     6  1235   157 6.1924e+002  1.5e-003 RB 0.0e+000 6.0e+002 (EQINCOME)
+  154     6  1265   158 6.1924e+002  1.2e-009 RG 0.0e+000 6.0e+002 (EQINCOME)
+  155     6  1295   159 6.1924e+002  1.2e-009 RG 0.0e+000 6.0e+002 (EQINCOME)
+  156    22  1325   160 6.1924e+002  1.2e-009 RG 0.0e+000 6.0e+002 (EQINCOME)
+
+Restart Log
+proximal_perturbation 0
+crash_method pnewton
+crash_nbchange_limit 10
+nms_initial_reference_factor 2
+crash_searchtype arc
+nms_searchtype arc
+gradient_searchtype arc
+lemke_search_type slack
+
+Crash Log
+major  func  diff  size  residual    step       prox   (label)
+    0     0             6.5412e+002             0.0e+000 (EQINCOME)
+    1     8     1    23 6.4570e+002  2.8e-002    6.5e+000 (EQINCOME)
+    2    16     1    24 6.3947e+002  2.8e-002    5.9e+000 (EQINCOME)
+    3    24     0    24 6.3550e+002  2.8e-002    5.3e+000 (EQINCOME)
+    4    32     0    24 6.3361e+002  2.8e-002    4.8e+000 (EQINCOME)
+    5    40     0    24 6.3356e+002  2.8e-002    4.3e+000 (EQINCOME)
+    6    49     0    24 6.3192e+002  1.2e-002    3.9e+000 (EQINCOME)
+    7    58     0    24 6.3032e+002  1.2e-002    3.5e+000 (EQINCOME)
+    8    67     0    24 6.2874e+002  1.2e-002    3.1e+000 (EQINCOME)
+    9    76     0    24 6.2717e+002  1.2e-002    2.8e+000 (EQINCOME)
+   10    85     0    24 6.2560e+002  1.2e-002    2.5e+000 (EQINCOME)
+pn_search terminated: no basis change.
+
+Major Iteration Log
+major minor  func  grad  residual    step  type prox    inorm  (label)
+  156     0  1441   171 6.2560e+002           R 2.3e+000 4.8e+002 (EQINCOME)
+  157     2  1447   172 8.7630e+002  2.1e-001 SB 9.1e-001 7.0e+002 (dLd_PK)
+  158     1  1452   173 6.1432e+002  3.3e-001 SB 3.6e-001 4.8e+002 (dLd_PD(sec1))
+  159     1  1458   174 6.6367e+002  2.1e-001 SB 1.5e-001 5.8e+002 (dLd_PD(sec1))
+  160     1  1467   175 6.5492e+002  2.3e-002 SB 5.8e-002 5.7e+002 (dLd_PD(sec1))
+  161     1  1476   176 6.4988e+002  2.3e-002 SB 2.3e-002 5.6e+002 (dLd_PD(sec1))
+  162     2  1486   177 6.4659e+002  9.2e-003 SB 9.3e-003 5.6e+002 (dLd_PD(sec1))
+  163     2  1496   178 6.4551e+002  9.2e-003 SB 3.7e-003 5.5e+002 (dLd_PD(sec1))
+  164     2  1507   179 6.4473e+002  1.5e-003 SB 1.5e-003 5.5e+002 (dLd_PD(sec1))
+  165     2  1518   180 6.4425e+002  1.5e-003 SB 6.0e-004 5.5e+002 (dLd_PD(sec1))
+  166     2  1530   181 6.4407e+002  2.6e-004 SB 2.4e-004 5.5e+002 (dLd_PD(sec1))
+  167     2  1542   182 6.4391e+002  2.6e-004 SB 9.6e-005 5.5e+002 (dLd_PD(sec1))
+  168     2  1555   183 6.4386e+002  4.4e-005 SB 3.8e-005 5.5e+002 (dLd_PD(sec1))
+  169     2  1568   184 6.4381e+002  4.4e-005 SB 1.5e-005 5.5e+002 (dLd_PD(sec1))
+  170     2  1582   185 6.4380e+002  1.2e-006 SB 6.1e-006 5.5e+002 (dLd_PD(sec1))
+  171     2  1596   186 6.4380e+002  1.2e-006 SB 2.4e-006 5.5e+002 (dLd_PD(sec1))
+  172     2  1610   187 6.4380e+002  1.2e-006 SB 9.8e-007 5.5e+002 (dLd_PD(sec1))
+  173     2  1639   188 6.1299e+002  4.3e-008 SG 3.6e-001 4.8e+002 (dLd_PD(sec1))
+  174     1  1646   189 5.9899e+002  1.3e-001 SB 1.5e-001 5.0e+002 (dLd_PD(sec1))
+  175     1  1654   190 5.7932e+002  5.5e-002 SB 5.8e-002 4.8e+002 (dLd_PD(sec1))
+  176     1  1662   191 5.9863e+002  5.5e-002 SB 2.3e-002 4.7e+002 (dLd_PD(sec1))
+  177     2  1672   192 5.9639e+002  9.2e-003 SB 9.3e-003 4.7e+002 (dLd_PD(sec1))
+  178     2  1682   193 5.9614e+002  9.2e-003 SB 3.7e-003 4.6e+002 (dLd_PD(sec1))
+  179     2  1693   194 5.9544e+002  1.5e-003 SB 1.5e-003 4.6e+002 (dLd_PD(sec1))
+  180     2  1704   195 5.9501e+002  1.5e-003 SB 6.0e-004 4.6e+002 (dLd_PD(sec1))
+  181     2  1716   196 5.9484e+002  2.6e-004 SB 2.4e-004 4.6e+002 (dLd_PD(sec1))
+  182     2  1728   197 5.9468e+002  2.6e-004 SB 9.6e-005 4.6e+002 (dLd_PD(sec1))
+  183     2  1740   198 5.9464e+002  2.6e-004 SB 3.8e-005 4.6e+002 (dLd_PD(sec1))
+  184     2  1753   199 5.9462e+002  4.4e-005 SB 1.5e-005 4.6e+002 (dLd_PD(sec1))
+  185     2  1767   200 5.9462e+002  1.2e-006 SB 6.1e-006 4.6e+002 (dLd_PD(sec1))
+  186     2  1795   201 5.3772e+002  1.5e-006 SG 5.8e-002 4.3e+002 (dLd_PD(sec1))
+  187     1  1801   202 5.2505e+002  2.1e-001 SB 2.3e-002 4.6e+002 (dLd_PD(sec1))
+  188     1  1807   203 3.9583e+002  2.1e-001 SB 9.3e-003 3.4e+002 (dLd_PD(sec1))
+  189     1  1813   204 5.1228e+002  2.1e-001 SB 3.7e-003 4.2e+002 (dLd_PK)
+  190     1  1821   205 5.0482e+002  5.5e-002 SB 1.5e-003 4.2e+002 (dLd_PK)
+  191     1  1829   206 4.9572e+002  5.5e-002 SB 6.0e-004 4.2e+002 (dLd_PK)
+  192     1  1837   207 4.8523e+002  5.5e-002 SB 2.4e-004 4.2e+002 (dLd_PK)
+  193     1  1845   208 4.7360e+002  5.5e-002 SB 9.6e-005 4.1e+002 (dLd_PK)
+  194     1  1853   209 4.6107e+002  5.5e-002 SB 3.8e-005 4.1e+002 (dLd_PK)
+  195     1  1861   210 4.4783e+002  5.5e-002 SB 1.5e-005 4.0e+002 (dLd_PK)
+  196     1  1869   211 4.3408e+002  5.5e-002 SB 6.1e-006 3.9e+002 (dLd_PK)
+  197     1  1876   212 4.3326e+002  1.3e-001 SB 2.4e-006 4.0e+002 (dLd_PK)
+  198     1  1883   213 4.2025e+002  1.3e-001 SB 9.8e-007 4.0e+002 (dLd_PK)
+  199     1  1889   214 4.1666e+002  2.1e-001 SB 3.9e-007 4.0e+002 (dLd_PK)
+  200     1  1894   215 4.1618e+002  3.3e-001 SB 1.6e-007 4.1e+002 (dLd_PK)
+  201     1  1897   216 4.0696e+002  6.4e-001 SB 6.3e-008 4.1e+002 (dLd_PK)
+  202     1  1898   217 1.2342e+002  1.0e+000 SM 2.5e-008 1.2e+002 (dLd_PK)
+  203     1  1899   218 3.4334e-001  1.0e+000 SM 1.0e-008 3.4e-001 (dLd_PK)
+  204     1  1900   219 4.4796e-006  1.0e+000 SM 4.0e-009 4.5e-006 (dLd_PK)
+  205     1  1901   220 1.4648e-013  1.0e+000 SM 1.6e-009 1.1e-013 (EQC(sec2))
+
+FINAL STATISTICS
+Inf-Norm of Complementarity . .  1.1369e-013 eqn: (EQC(sec2))
+Inf-Norm of Normal Map. . . . .  1.1369e-013 eqn: (EQC(sec2))
+Inf-Norm of Minimum Map . . . .  1.1369e-013 eqn: (EQC(sec2))
+Inf-Norm of Fischer Function. .  1.1369e-013 eqn: (EQC(sec2))
+Inf-Norm of Grad Fischer Fcn. .  1.8060e-011 eqn: (dLd_PD(sec2))
+Two-Norm of Grad Fischer Fcn. .  1.8870e-011
+
+FINAL POINT STATISTICS
+Maximum of X. . . . . . . . . .  1.2100e+003 var: (Y)
+Maximum of F. . . . . . . . . .  1.1369e-013 eqn: (EQC(sec2))
+Maximum of Grad F . . . . . . .  1.5886e+002 eqn: (EQC(sec2))
+                                            var: (PD(sec2))
+
+ ** EXIT - solution found.
+
+Major Iterations. . . . 205
+Minor Iterations. . . . 361
+Restarts. . . . . . . . 3
+Crash Iterations. . . . 11
+Gradient Steps. . . . . 14
+Function Evaluations. . 1901
+Gradient Evaluations. . 220
+Total Time. . . . . . . 0.196000
+Residual. . . . . . . . 1.464821e-013
+The MCP solved
+NLP objective: 1
+
+--- Restarting execution
+--- EcoMod1E.gms(355) 2 Mb
+--- Reading solution for model EcoMod1E
+--- Executing after solve: elapsed 0:00:00.414
+--- EcoMod1E.gms(466) 3 Mb
+*** Status: Normal completion
+--- Job EcoMod1E.gms Stop 03/03/17 09:16:14 elapsed 0:00:00.414
