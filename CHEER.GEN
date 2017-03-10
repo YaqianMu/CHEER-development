@@ -1254,6 +1254,6 @@ PUT / '$PEPS:1.E-6'/;
 PUT / '$SOLVE'/;
 PUTCLOSE   MPS;
 CHEER.INTEGER1 = CHEER.INTEGER1 + 1;
-$IF %CHEER%=="03/09/1718:49:23" $EXIT
+$IF %CHEER%=="03/09/1718:57:28" $EXIT
 $error model.gen file is inconsistent
 $abort preprocessor must be reinvoked

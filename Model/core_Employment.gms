@@ -406,7 +406,8 @@ pelec.l(sub_elec)=(costelec0(sub_elec));
 *== switch for umemployment
 ur0(lm)$(1-switch_um)=0;
 ur.l(lm)=ur0(lm);
-ur.lo(lm)=ur0(lm);;
+*ur.lo(lm)=ur0(lm);
+ur.lo(lm)=1e-8;
 
 *== policy shock for static model ==============================================
 
