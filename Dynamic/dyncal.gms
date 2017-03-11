@@ -166,72 +166,44 @@ file screen / 'con' / ;
 * S1 = proposed regulation
 
 set
-scn          / BAU,SA1,SB1,SC1,SD1,SE1,BAU2,SA2,SB2,SC2,SD2,SE2 /
+scn          / BAU,ECF,LST,ETS /
 bscn(scn) / BAU /
-pscn0(scn) / SA1,SB1,SC1,SD1,SE1,BAU2,SA2,SB2,SC2,SD2,SE2 /
-*Scenarios with economy wide carbon market
-pscna(scn) / SA1,SA2/
-*Scenarios with carbon market in 8 selected sectors using the exdogenous carbon price as economy wide carbon market
-pscnb(scn) / SB1,SB2/
-*Scenarios with carbon market in 8 selected sectors plus EII using the exdogenous carbon price as economy wide carbon market
-pscnc(scn) / SC1,SC2/
-*Scenarios with renewable subsidy to meet moderate renewable quota
-pscn1(scn) /SA1/
-*Scenarios with renewable subsidy to meet aggressive renewable quota
-bscn2(scn) / BAU2 /
-pscn2(scn) /SA2,SB2, SC2/
-*Scenarios with carbon market in 8 selected sectors to meet INDC target
-pscnd(scn) /SD1,SD2/
-*Scenarios with carbon market in 8 selected sectors plus EII to meet INDC target
-pscne(scn) /SE1,SE2/
-pscnde(scn) /SD1,SD2,SE1,SE2/
-pscnde1(scn) /SD1,SE1/
-pscnde2(scn) /SD2,SE2/
-pscnde3(scn) /SE1/
+pscn(scn) / ECF,LST,ETS /
+*Scenarios with electricity consumption fees
+pscna(scn) / ECF/
+*Scenarios with lump-sum tax
+pscnb(scn) /LST/
+*Scenarios with emission trading scheme
+pscnc(scn) / ETS/
 
-parameter clim_scn,clim_ms_scn,clim_m_scn,clim_trend_scn,tax_scn,renewable_scn;
+
+parameter clim_scn,clim_ms_scn,clim_m_scn,clim_trend_scn,tax_scn,renewable_scn,ecf_scn;
 *clim ---------------- switch for national carbon market 0=off,1=accounting; 2= quantity target;3 = intensity target;
 *clim_ms ---------------------- switch for sectoral carbon market 0=off,1=exogenous carbon price; 2= quantity target;3 = intensity target;
 *clim_m ---------------------- switch for sector in the sectoral carbon market 0=not in, 1 = in;
 
 clim_scn(scn)=0;
-clim_scn(pscna)=3;
-clim_scn(pscnd)=1;
-clim_scn(pscne)=1;
-clim_scn(bscn)=1;
+clim_scn(pscna)=1;
+clim_scn(pscnb)=1;
+clim_scn(pscnc)=4;
 
 clim_ms_scn(scn) =0;
-clim_ms_scn(pscnb) =1;
-clim_ms_scn(pscnc) =1;
-clim_ms_scn(pscnd) =3;
-clim_ms_scn(pscne) =3;
 
 clim_m_scn(s,scn)=0;
-clim_m_scn(cm,pscnb)=1;
-clim_m_scn(cm,pscnc)=1;
-clim_m_scn("EII",pscnc)=1;
-clim_m_scn(cm,pscnd)=1;
-clim_m_scn(cm,pscne)=1;
-clim_m_scn("EII",pscne)=1;
 
 clim_trend_scn(t,scn) = climit(t,"lower");
 
-tax_scn(scn)=1;
-tax_scn(pscn2)=1;
+tax_scn(scn,sub_elec)=1;
+tax_scn(pscn,"wind")=0;
+tax_scn(pscn,"solar")=0;
+
+ecf_scn(scn)=1;
+ecf_scn(pscna)=1;
+ecf_scn(pscnb)=0;
+ecf_scn(pscnc)=0;
 
 renewable_scn(t,sub_elec,"BAU")=RET1(t,sub_elec);
-renewable_scn(t,sub_elec,"BAU2")=RET2(t,sub_elec);
-renewable_scn(t,sub_elec,pscn1)=RET1(t,sub_elec);
-renewable_scn(t,sub_elec,pscn2)=RET2(t,sub_elec);
-
-*## Scenarios
-*--
-*  S1 - all sectors covered national carbon market
-*--
-*  S2 - selected sectors covered national carbon market
-*--
-*  S3 - selected sectors covered national carbon market plus EII
-*##
+renewable_scn(t,sub_elec,pscn)=RET2(t,sub_elec);
 
 parameter
 report1    reporting variable

@@ -13,7 +13,7 @@ file reportfile / "Output/output.csv" / ;
 display "Begin output listing" ;
 
 options limcol=000, limrow=000 ;
-options solprint=off ;
+options solprint=on ;
 *option solvelink=2;
 
 put reportfile ;
@@ -83,23 +83,15 @@ S15      .        biomass
 / ;
 $offtext
 
-set sce reduction rate /BAU, ECF_n, ECF_w, ECF_s, ECF_h, ECF_b, LST_n, LST_w, LST_s, LST_h, LST_b, ETS_n, ETS_w, ETS_s, ETS_h, ETS_b/  ;
+*set sce reduction rate /BAU, ECF_n, ECF_w, ECF_s, ECF_h, ECF_b, LST_n, LST_w, LST_s, LST_h, LST_b, ETS_n, ETS_w, ETS_s, ETS_h, ETS_b/  ;
+set sce reduction rate /BAU, wind_ECF, solabor_ECF, wind_LST, solabor_LST,wind_ETS, solabor_ETS/  ;
 set mapsce(sce,sub_elec)  /
-ECF_n        .        nuclear
-ECF_w        .        wind
-ECF_s        .        solar
-ECF_h        .        Hydro
-ECF_b        .        biomass
-LST_n        .        nuclear
-LST_w        .        wind
-LST_s        .        solar
-LST_h        .        Hydro
-LST_b      .        biomass
-ETS_n        .        nuclear
-ETS_w        .        wind
-ETS_s        .        solar
-ETS_h        .        Hydro
-ETS_b       .        biomass
+wind_ECF        .        wind
+solabor_ECF        .        solar
+wind_LST        .        wind
+solabor_LST        .        solar
+wind_ETS        .        wind
+solabor_ETS        .        solar
 / ;
 
 parameter sce_s(sce,sub_elec) ;
@@ -118,7 +110,7 @@ $include CHEER.gen
 
 solve CHEER using mcp;
 
-display CHEER.modelstat, CHEER.solvestat,subelec0,rate;
+display CHEER.modelstat, CHEER.solvestat,subelec0,rate,ur.l,t_re.l;
 
 UNEM(lm,z)=UR.l(lm);
 pwage(lm,i,z)=pl.l(lm,i);
@@ -153,7 +145,9 @@ $include %RepPath%\report_static
 
 ));
 
-loop(sce$(ord(sce) gt 1 and ord(sce) lt 7),
+
+
+loop(sce$(ord(sce) ge 2 and ord(sce) le 3),
 
          loop(z$(ord(z) gt 1),
 
@@ -167,11 +161,13 @@ $include CHEER.gen
 
 solve CHEER using mcp;
 
-display CHEER.modelstat, CHEER.solvestat,subelec0,rate,tax_s,ret0;
+
 
 
 UNEM(lm,z)=UR.l(lm);
 pwage(lm,i,z)=pl.l(lm,i);
+
+display CHEER.modelstat, CHEER.solvestat,subelec0,rate,tax_s,ret0,ur.l,t_re.l;
 
 report1(z,'so2',i)=scoef_e('process',i)*qdout.l(i) ;
 report1(z,'so2','fd')=scoef_e('process','fd')*sum(i,qc.l(i)) ;
@@ -203,7 +199,7 @@ $include %RepPath%\report_static
 ));
 
 
-loop(sce$(ord(sce) gt 6 and ord(sce) lt 12),
+loop(sce$(ord(sce) ge 4 and ord(sce) le 5),
 
          loop(z$(ord(z) gt 1),
 
@@ -216,7 +212,7 @@ $include CHEER.gen
 
 solve CHEER using mcp;
 
-display CHEER.modelstat, CHEER.solvestat,subelec0,rate,tax_s;
+display CHEER.modelstat, CHEER.solvestat,subelec0,rate,tax_s,ur.l,t_re.l;
 
 
 UNEM(lm,z)=UR.l(lm);
@@ -252,7 +248,7 @@ $include %RepPath%\report_static
 ));
 
 
-loop(sce$(ord(sce) gt 11 and ord(sce) lt 17),
+loop(sce$(ord(sce) ge 6 and ord(sce) le 7),
 
          loop(z$(ord(z) gt 1),
 
@@ -265,7 +261,7 @@ $include CHEER.gen
 
 solve CHEER using mcp;
 
-display CHEER.modelstat, CHEER.solvestat,subelec0,rate,tax_s,pco2.l;
+display CHEER.modelstat, CHEER.solvestat,subelec0,rate,tax_s,pco2.l,ur.l,t_re.l;
 
 
 UNEM(lm,z)=UR.l(lm);

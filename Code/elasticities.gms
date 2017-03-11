@@ -51,6 +51,7 @@ esub_gt=0;
 esub_pe=1.5;
 esub_be=1.5;
 
+
 table esub_elec(*,*)   substitution elasticity in electricity sector
         T_D         Coal_Power         Gas_Power         Oil_Power         Nuclear         Hydro         Wind         Solar         Biomass
 NR                                                                         0.6             0.5           0.25         0.2           0.2

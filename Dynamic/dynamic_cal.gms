@@ -9,7 +9,7 @@ tax_s(sub_elec)  =1;
 
 re_s=1;
 *== switch for learning curve *=on
-bata(sub_elec)$(1-switch_learn) = 1;
+bata(sub_elec)$(1-switch_learn) =0;
 
 *options solprint=off ;
 loop(t$(ord(t) le card(t)),
@@ -35,17 +35,23 @@ ret0(sub_elec)=renewable_scn(t,sub_elec,"BAU");
 *==============parameter for policy shock===============
 clim=0;
 
-tax_s(cfe)=1;
+*tax_s("wind")=0;
+*tax_s("solar")=0;
+*tax_s("nuclear")=0;
+*tax_s("biomass")=0;
+*tax_s("hydro")=0;
 
-Switch_fee=0;
+*re_s=0;
+
+Switch_fee=1;
 
 *==code for learning curve
 
-*mkup_t(t,sub_elec)$(ord(t) eq 1) = ((elecout_t(t,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
+mkup_t(t,sub_elec)$(ord(t) eq 1) = ((elecout_t(t,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
 
-*mkup_t(t,sub_elec)$(ord(t) gt 1) = ((elecout_t(t-1,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
+mkup_t(t,sub_elec)$(ord(t) gt 1) = ((elecout_t(t-1,sub_elec))/elecout_t("2012",sub_elec))**bata(sub_elec)*mkup_t("2012",sub_elec) ;
 
-mkup_t(t,sub_elec)=1;
+*mkup_t(t,sub_elec)=1;
 emkup(sub_elec)=mkup_t(t,sub_elec);
 
 
@@ -123,7 +129,7 @@ sffelec_b(t,sub_elec)=sffelec.l(sub_elec);
 
 *sffelec_bau(t,sub_elec)$(simu_s eq 0)=sffelec.l(sub_elec);
 
-display tqlabor_s0,tlabor_s0,cquota,rgdp.l,gprod.l,emkup,ret0,fact;
+display tqlabor_s0,tlabor_s0,cquota,rgdp.l,gprod.l,emkup,ret0,fact,bata;
 );
 
 display fact_supp,AEEI_t,xscale_t,mkup_t,elecout_t,sub_t,gprod_b;
@@ -133,9 +139,10 @@ display fact_supp,AEEI_t,xscale_t,mkup_t,elecout_t,sub_t,gprod_b;
 *caldata(t,"gprod")=gprod_b(t);
 *caldata(t,"subsidy")=sub_t(t,sub_elec);
 *caldata(t,"sffelec")=sffelec_b(t,sub_elec);
-execute_unload "caldata.gdx" gprod_b sub_t sffelec_b;
+*execute_unload %DataPath%/trend_TR_output.gdx
+*execute_unload "%DataPath%/trend_TR_output.gdx" gprod_b sub_t sffelec_b;
 *execute 'gdxxrw.exe caldata.gdx par=caldata rng=A1 ';
 PAT(t,"gprod")=gprod_b(t);
 subsidy_b(t,sub_elec)=sub_t(t,sub_elec);
-execute_unload "trend.gdx" PAT RET1 RET2 sffelec_b   sffelec_BAU subsidy_b
-execute 'gdxxrw.exe trend.gdx par=PAT rng=A1:E18   par=RET1 rng=A26:I35   par=RET2 rng=A37:I46 par=sffelec_b rng=A47 par=sffelec_BAU rng=A58 par=subsidy_b rng=A69';
+execute_unload "%DataPath%/trend_TR_output.gdx" PAT RET1 RET2 sffelec_b   sffelec_BAU subsidy_b subsidy_h
+*execute 'gdxxrw.exe trend.gdx par=PAT rng=A1:E18   par=RET1 rng=A26:I35   par=RET2 rng=A37:I46 par=sffelec_b rng=A47 par=sffelec_BAU rng=A58 par=subsidy_b rng=A69';

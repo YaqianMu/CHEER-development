@@ -123,20 +123,21 @@ $include %DynPath%/trend
 
 $include %ModPath%/core%modstr%
 
-*$include %DynPath%/dyncal
+
 
 *========static simulation========
-*$include %SimPath%/sim%simsce%
+$include %SimPath%/sim%simsce%
 
 *========dynamic simulation========
-
+*$include %DynPath%/dyncal        
 *=======calibration of BAU
 *1st run
 *$include %DynPath%/dynamic_cal
 *$include %DynPath%/dynamic_BAU
 
 *=======Policy shock
-*$include%DynPath%/ dynamic_shock
+*$include %DynPath%/dynamic_shock
+
 *2nd run
 *$include %DynPath%/dynamic_BAU2
 *$include%DynPath%/ dynamic_shock2

@@ -11,16 +11,17 @@
 *0419    report一次能源消费
 *1207 add learning curve
 *----------------------------------------------*
-simu_s =1;
-tax_s =1;
-re_s=1;
 
+*simu=0,calibration; simu_s=1,GDP endogenous,simu_s=0,GDP exdogenous˰
+simu_s =1;
+tax_s(sub_elec) =1;
+re_s=1;
 *== switch for learning curve *=on
 bata(sub_elec)$(1-switch_learn) = 0;
 
 options solprint=on ;
 
-loop(scn$(pscn1(scn)),
+loop(scn$(pscn(scn) ),
 
   loop(t$(ord(t) le card(t)),
 
@@ -44,6 +45,8 @@ rgdp0$(simu_s eq 0)=rgdp_b(t);
 
 ret0(sub_elec)=renewable_scn(t,sub_elec,scn);
 
+*subelec0(sub_elec)= -sub_t(t,sub_elec)+taxelec0(sub_elec);
+
 subelec0(sub_elec)= -subsidy_b(t,sub_elec)+taxelec0(sub_elec);
 
 *==============parameter for policy shock===============
@@ -54,14 +57,9 @@ clim0= clim_trend_scn(t,scn);
 
 price_co2$(clim_ms eq 1)=price_co2_t(t);
 
-tax_s=tax_scn(scn);
+tax_s(sub_elec)=tax_scn(scn,sub_elec);
 
-*==== higher subsidy for renewable
-
-*taxelec0(sub_elec)$(wsb(sub_elec) and ord(t) eq 2)=100*taxelec0(sub_elec);
-*taxelec0("wind")$(ord(t) eq 2)=100*taxelec0("wind");
-*taxelec0("solar")$(ord(t) eq 2)=100*taxelec0("solar");
-*taxelec0("biomass")$(ord(t) eq 2)=100*taxelec0("biomass");
+Switch_fee=ecf_scn(scn);
 
 *==code for learning curve
 
@@ -119,30 +117,21 @@ report4("markup",sub_elec)= emkup(sub_elec);
 
 report5(t)=   pcons.l*grosscons.l+pinv.l*grossinvk.l+sum(i,py.l(i)*((nx0(i)+xinv0(i)+xcons0(i))*xscale));
 
-report6(lm,"total")= sum(i,qlin.l(i,lm))+sum(sub_elec,qlin_ele.l(sub_elec,lm));
-report6(lm,i)= qlin.l(i,lm);
-report6(lm,"elec")= sum(sub_elec,qlin_ele.l(sub_elec,lm));
-report6(lm,sub_elec)= qlin_ele.l(sub_elec,lm);
+report6(lm,"total")= sum(i,qlin.l(lm,i))+sum(sub_elec,qlin_ele.l(lm,sub_elec));
+report6(lm,i)= qlin.l(lm,i);
+report6(lm,"elec")= sum(sub_elec,qlin_ele.l(lm,sub_elec));
+report6(lm,sub_elec)= qlin_ele.l(lm,sub_elec);
 
 report8("output",t,sub_elec)=qelec.l(sub_elec);
 report8("output",t,"Total")=sum(sub_elec,report8("output",t,sub_elec));
 report8("share",t,sub_elec)$(not wse(sub_elec))=qelec.l(sub_elec)/report8("output",t,"Total");
 report8("share",t,sub_elec)$(wse(sub_elec))=qelec.l(sub_elec)/report8("output",t,"Total");
 
-report12("Billion Yuan",t,e)=qc.l(e)+sum(j,qin.l(e,j))+sum(sub_elec,qin_ele.l(e,sub_elec));
-report12("Billion Yuan",t,sub_elec)$(cfe(sub_elec))=report12("Billion Yuan",t,"elec")*report8("share",t,sub_elec);
-report12("coal equivalent calculation(Mt)",t,fe)=eet1(fe)/100*report12("Billion Yuan",t,fe)/report12("Billion Yuan","2012",fe);
-report12("coal equivalent calculation(Mt)",t,sub_elec)$(cfe(sub_elec))=eet1(sub_elec)/100*report12("Billion Yuan",t,sub_elec)/report12("Billion Yuan","2012",sub_elec);
-report12("coal equivalent calculation(Mt)",t,"Total")=sum(fe,report12("coal equivalent calculation(Mt)",t,fe))+sum(sub_elec$(cfe(sub_elec)),report12("coal equivalent calculation(Mt)",t,sub_elec));
-report12("coal equivalent calculation(Mt)",t,"nfshare")=sum(sub_elec$(cfe(sub_elec)),report12("coal equivalent calculation(Mt)",t,sub_elec))/report12("coal equivalent calculation(Mt)",t,"Total");
-report12("calorific value calculation(Mt)",t,fe)=eet2(fe)/100*report12("Billion Yuan",t,fe)/report12("Billion Yuan","2012",fe);
-report12("calorific value calculation(Mt)",t,sub_elec)$(cfe(sub_elec))=eet2(sub_elec)/100*report12("Billion Yuan",t,sub_elec)/report12("Billion Yuan","2012",sub_elec);
-report12("calorific value calculation(Mt)",t,"Total")=sum(fe,report12("calorific value calculation(Mt)",t,fe))+sum(sub_elec$(cfe(sub_elec)),report12("calorific value calculation(Mt)",t,sub_elec));
-report12("calorific value calculation(Mt)",t,"nfshare")=sum(sub_elec$(cfe(sub_elec)),report12("calorific value calculation(Mt)",t,sub_elec))/report12("calorific value calculation(Mt)",t,"Total");
 
 
+qlin.l(lm,"elec")=sum(sub_elec,qlin_ele.l(lm,sub_elec));
 
-qlin.l("elec",lm)=sum(sub_elec,qlin_ele.l(sub_elec,lm));
+
 
 *------------------
 *update endowments
@@ -190,18 +179,16 @@ xscale_t(t+1)$(ord(t) gt 1)                                   =0.99**(5*(ord(t))
 *=======electricity Output===============
 elecout_t(t,sub_elec)=qelec.l(sub_elec);
 
-*=======exogenous carbon price==========
-*price_co2_t(t)= 0;
-price_co2_t(t)$(pscna(scn)) = pco2.l;
+*=======calibrate the sub  =========
+sub_t(t,sub_elec) =  t_re.l(sub_elec);
 
+*=======calibrate the fixed-factor  =========
+sffelec_b(t,sub_elec)=sffelec.l(sub_elec);
 $include %RepPath%/report_dynamic
 
-display tqlabor_s0,tlabor_s0,cquota,rgdp.l,gprod.l,emkup,fact,price_co2_t;
+check(lm)=tlabor_s0(lm)*gprod0 -report6(lm,"total");
+check(lm)=LABORS.l(lm) -sum(i,laborss.l(lm,i));
+display tqlabor_s0,tlabor_s0,cquota,rgdp.l,gprod.l,emkup,fact,report8,check;
   );
-if(pscna(scn),
-PAT(t,"PCO2")$(pscna(scn))=price_co2_t(t);
-execute_unload "trend.gdx" PAT
-execute 'gdxxrw.exe trend.gdx par=PAT rng=A1:E18';)
 );
-
-display fact_supp,AEEI_t,xscale_t,mkup_t,elecout_t,price_co2_t;
+display fact_supp,AEEI_t,xscale_t,mkup_t;

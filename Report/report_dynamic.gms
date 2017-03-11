@@ -42,8 +42,8 @@ loop(i,
   put scn.tl,t.tl, 'output', i.tl, '','','','output', (qdout.l(i)),CHEER.modelstat / ;
     put scn.tl,t.tl, 'Sectoral price', i.tl, '','','','Sectoral price', (py.l(i)),CHEER.modelstat / ;
   loop(lm,
-  put scn.tl,t.tl, 'employment', i.tl,'', '',lm.tl,'employment', (qlin.l(i,lm)),CHEER.modelstat / ;
-  put scn.tl,t.tl, 'Sectoral wage', i.tl,'', '',lm.tl,'Sectoral wage', (pl.l(i,lm)),CHEER.modelstat / ;
+  put scn.tl,t.tl, 'employment', i.tl,'', '',lm.tl,'employment', (qlin.l(lm,i)),CHEER.modelstat / ;
+  put scn.tl,t.tl, 'Sectoral wage', i.tl,'', '',lm.tl,'Sectoral wage', (pl.l(lm,i)),CHEER.modelstat / ;
       );
 ) ;
 
@@ -54,7 +54,7 @@ loop(sub_elec,
   put scn.tl,t.tl, 'elec_share', '','', sub_elec.tl,'','elec_share' , (report8("share",t,sub_elec)),CHEER.modelstat / ;
   put scn.tl,t.tl, 'elec_tax', '','', sub_elec.tl,'','elec_tax' , (t_re.l(sub_elec)),CHEER.modelstat / ;
   loop(lm,
-  put scn.tl,t.tl, 'employment','','', sub_elec.tl ,lm.tl,'employment', (qlin_ele.l(sub_elec,lm)),CHEER.modelstat / ;
+  put scn.tl,t.tl, 'employment','','', sub_elec.tl ,lm.tl,'employment', (qlin_ele.l(lm,sub_elec)),CHEER.modelstat / ;
       );
 ) ;
 
@@ -96,6 +96,7 @@ loop(lm,
 
 );
 
+$ontext
 * ----- energy results
 loop(fe,
   put scn.tl,t.tl, 'Energy Consumption','','', fe.tl ,'','Billion Yuan' , (report12("Billion Yuan",t,fe)),CHEER.modelstat / ;
@@ -114,6 +115,8 @@ put scn.tl,t.tl, 'Energy non-fossil share','','', '' ,'','coal equivalent calcul
 
 put scn.tl,t.tl, 'Energy Total','','', '' ,'','calorific value calculation(Mt)' , (report12("calorific value calculation(Mt)",t,"Total")),CHEER.modelstat / ;
 put scn.tl,t.tl, 'Energy non-fossil share','','', '' ,'','calorific value calculation(Mt)' , (report12("calorific value calculation(Mt)",t,"nfshare")),CHEER.modelstat / ;
+
+$offtext
 
 * ----- macro results
   put scn.tl,t.tl, 'GDP','', '', '','','GDP', rgdp.l,CHEER.modelstat / ;

@@ -135,9 +135,8 @@ PUT   MPS,'$MODEL:CHEER'/;
 {   70}    PUT /;
 {   70}    PUT /,'$PROD:Y''.'I.TL;
 {   70}    IF ((ABS(ESUB_GT) GT MPSEPS),PUT /,'+S:'ESUB_GT;  );
-{   70}    PUT /,'+B(S):'100;
-{   70}    PUT /,'+A(B):'ESUB_PE;
-{   70}    PUT /,'+C(A):'ESUB_BE;
+{   70}    PUT /,'+A:'ESUB_PE;
+{   70}    PUT /,'+B(A):'ESUB_BE;
 {   71}    IF(ABS(OUTPUT0(I)) GT MPSEPS,
 {   71}      PUT /,'O:PY''.'I.TL;
 {   71}      PUT /,'+Q:'OUTPUT0(I);
@@ -157,14 +156,14 @@ PUT   MPS,'$MODEL:CHEER'/;
 {   73}        PUT /,'I:PELEC''.'SUB_ELEC.TL;
 {   73}        PUT /,'+Q:'OUTPUTELEC0(SUB_ELEC);
 {   73}        PUT /,'+P:'(COSTELEC0(SUB_ELEC));
-{   73}        PUT /,'+C:' ;
+{   73}        PUT /,'+B:' ;
 {   74}      );
 {   74}    );
 {   74}    IF(ABS(OUTPUTELEC0("OIL_POWER")) GT MPSEPS,
 {   74}      PUT /,'I:PELEC''.OIL_POWER';
 {   74}      PUT /,'+Q:'OUTPUTELEC0("OIL_POWER");
 {   74}      PUT /,'+P:'(COSTELEC0("OIL_POWER"));
-{   74}      PUT /'+','A:';
+{   74}      PUT /,'+B:' ;
 {   75}    );
 {   75}    LOOP((SUB_ELEC)$(HNB(SUB_ELEC)),
 {   75}      IF(ABS(OUTPUTELEC0(SUB_ELEC)) GT MPSEPS,
@@ -1254,6 +1253,6 @@ PUT / '$PEPS:1.E-6'/;
 PUT / '$SOLVE'/;
 PUTCLOSE   MPS;
 CHEER.INTEGER1 = CHEER.INTEGER1 + 1;
-$IF %CHEER%=="03/09/1718:57:28" $EXIT
+$IF %CHEER%=="03/10/1715:58:18" $EXIT
 $error model.gen file is inconsistent
 $abort preprocessor must be reinvoked

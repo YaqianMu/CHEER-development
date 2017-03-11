@@ -86,11 +86,11 @@ $prod:l_a(lm)       t:esub_LabDist(lm)
 
 
 *== the nested structure of electricity is to be checked
-$prod:y(i)$elec(i)   s:esub_gt   b(s):100 a(b):esub_pe     c(a):esub_be
+$prod:y(i)$elec(i)   s:esub_gt    a:esub_pe     b(a):esub_be
         o:py(i)                               q:output0(i)   p:(1-ecf0)  a:ra  N:ecf$Switch_fee
         i:pelec(sub_elec)$TD(sub_elec)        q:outputelec0(sub_elec)     p:(costelec0(sub_elec))
-        i:pelec(sub_elec)$cge(sub_elec)       q:outputelec0(sub_elec)     p:(costelec0(sub_elec))  c:
-        i:pelec("OIL_Power")                        q:outputelec0("OIL_Power")    p:(costelec0("OIL_Power"))  a:
+        i:pelec(sub_elec)$cge(sub_elec)       q:outputelec0(sub_elec)     p:(costelec0(sub_elec))  b:
+        i:pelec("OIL_Power")                        q:outputelec0("OIL_Power")    p:(costelec0("OIL_Power"))  b:
         i:pelec(sub_elec)$hnb(sub_elec)       q:outputelec0(sub_elec)     p:(costelec0(sub_elec))  a:
         i:pelec(sub_elec)$wse(sub_elec)       q:outputelec0(sub_elec)     p:(costelec0(sub_elec))  a:
         i:pbt(bt)$Switch_bt(bt)                      q:1    b:
@@ -406,8 +406,8 @@ pelec.l(sub_elec)=(costelec0(sub_elec));
 *== switch for umemployment
 ur0(lm)$(1-switch_um)=0;
 ur.l(lm)=ur0(lm);
-*ur.lo(lm)=ur0(lm);
-ur.lo(lm)=1e-8;
+ur.lo(lm)=0.5*ur0(lm);
+*ur.lo(lm)=1e-3;
 
 *== policy shock for static model ==============================================
 
@@ -458,7 +458,7 @@ phi=0.1;
 
 *tax_s("wind")=0;
 
-*ret0("wind") =1+(outputelec0("wind")+200)/outputelec0("wind");
+*ret0("wind") =1+(outputelec0("wind")+100)/outputelec0("wind");
 *clim=4;
 *Switch_fee=0;
 
