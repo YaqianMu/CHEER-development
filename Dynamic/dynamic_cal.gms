@@ -32,6 +32,8 @@ xscale = xscale_t(t);
 rgdp0$(simu_s eq 0)=rgdp_b(t);
 ret0(sub_elec)=renewable_scn(t,sub_elec,"BAU");
 
+yelec.fx(cfe)=renewable_scn(t,cfe,"BAU");
+
 *==============parameter for policy shock===============
 clim=0;
 

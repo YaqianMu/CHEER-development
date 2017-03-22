@@ -91,6 +91,25 @@ loop(lm,
   put sce.tl, rate(z),'2012', 'unemployment','' , '',lm.tl,'ur', (UR.l(lm)),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'total employment', '', '',lm.tl,'total employment', (report6(z,lm,"total")),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'aggregated wage', lm.tl, '',lm.tl,'aggregated wage', (pls.l(lm)),CHEER.modelstat / ;
+  loop(i,
+  put sce.tl, rate(z),'2012', 'TEE', '', i.tl,lm.tl,'TEE', (TEE(z,lm,i)),CHEER.modelstat / ;
+)
+  loop(sub_elec,
+  put sce.tl, rate(z),'2012', 'DEE', '', sub_elec.tl,lm.tl,'DEE', (DEE(z,lm,sub_elec)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'IEE', '', sub_elec.tl,lm.tl,'IEE', (IEE(z,lm,sub_elec)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'TEE', '', sub_elec.tl,lm.tl,'TEE', (TEE(z,lm,sub_elec)),CHEER.modelstat / ;
+)
+  put sce.tl, rate(z),'2012', 'TEE', '', 'total',lm.tl,'TEE', (TEE(z,lm,"total")),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'TEE_DE', '', '',lm.tl,'TEE_DE', (TEE_DE(z,lm,"total")),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'TEE_WE', '', '',lm.tl,'TEE_WE', (TEE_WE(z,lm,"Total")),CHEER.modelstat / ;
+  loop(i,
+  put sce.tl, rate(z),'2012', 'TEE_DE', i.tl, '',lm.tl,'TEE_DE', (TEE_DE(z,lm,i)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'TEE_WE', i.tl, '',lm.tl,'TEE_WE', (TEE_WE(z,lm,i)),CHEER.modelstat / ;
+  )
+  loop(sub_elec,
+  put sce.tl, rate(z),'2012', 'TEE_DE', '', sub_elec.tl,lm.tl,'TEE_DE', (TEE_DE(z,lm,sub_elec)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'TEE_WE', '', sub_elec.tl,lm.tl,'TEE_WE', (TEE_WE(z,lm,sub_elec)),CHEER.modelstat / ;
+  )
 
 );
 
@@ -100,9 +119,8 @@ loop(lm,
 
 *------- policy shock
 loop(sub_elec,
-  put sce.tl, rate(z),'2012', 'subsidy_b', '', 'sub_elec.tl','','subsidy_b', subelec0(sub_elec),CHEER.modelstat / ;
-  put sce.tl, rate(z),'2012', 'subsidy', '', 'sub_elec.tl','','subsidy0', subelec_b(sub_elec),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'subsidy_b', '', sub_elec.tl,'','subsidy_b', subelec0(sub_elec),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'subsidy', '', sub_elec.tl,'','subsidy0', t_re.l(sub_elec),CHEER.modelstat / ;
 ) ;
   put sce.tl, rate(z),'2012', 'pco2_ms', '', '','','carbon price', pco2_ms.l,CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'pco2', '', '','','carbon price', pco2.l,CHEER.modelstat / ;
-  

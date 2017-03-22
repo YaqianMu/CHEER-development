@@ -45,6 +45,10 @@ rgdp0$(simu_s eq 0)=rgdp_b(t);
 
 ret0(sub_elec)=renewable_scn(t,sub_elec,scn);
 
+*yelec.fx("Wind")=renewable_scn(t,"Wind",scn);
+*yelec.fx("solar")=renewable_scn(t,"solar",scn);
+yelec.fx(cfe)=renewable_scn(t,cfe,scn);
+
 *subelec0(sub_elec)= -sub_t(t,sub_elec)+taxelec0(sub_elec);
 
 subelec0(sub_elec)= -subsidy_b(t,sub_elec)+taxelec0(sub_elec);

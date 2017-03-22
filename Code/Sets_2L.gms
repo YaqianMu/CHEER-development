@@ -150,6 +150,7 @@ year years within each time period /1*5/
 *----------------------------------------------*
 set     sub_elec /T_D, Coal_Power, Gas_Power, Oil_Power, Nuclear, Hydro, Wind, Solar, Biomass/
          TD(sub_elec)  transport and distribution /T_D/
+         gen(sub_elec) /Coal_Power, Gas_Power, Oil_Power, Nuclear, Hydro, Wind, Solar, Biomass/
          bse(sub_elec) base load electricity /Coal_Power, Gas_Power, Oil_Power, Nuclear, Hydro, Biomass/
          ffe(sub_elec) fossil fuel electricity /Coal_Power, Gas_Power, Oil_Power/
          cge(sub_elec) fossil fuel electricity /Coal_Power, Gas_Power/
@@ -159,11 +160,11 @@ set     sub_elec /T_D, Coal_Power, Gas_Power, Oil_Power, Nuclear, Hydro, Wind, S
          hne(sub_elec)  hydro and nuclear electricity /Nuclear, Hydro/
          wsb(sub_elec)  wind and solar biomass/Wind, Solar, Biomass/;
 
-alias (sub_elec,sub_elecc);
+alias (sub_elec,sub_elecc),(gen,genn);
 
 set bt /ngcc,ngcap,igcap/
       ngcap(bt) /ngcap/;
-      
+
 *----------------------------------------------*
 *==sets for labor market
 *----------------------------------------------*

@@ -65,7 +65,7 @@ $if not set modstr $set modstr _Employment
 *$if not set modstr $set modstr _ecf
 
 *== bridge variable for simulation choice
-$if not set simsce $set simsce _endosub
+$if not set simsce $set simsce _0310
 *$if not set simsce $set simsce _exdosub
 *$if not set simsce $set simsce _quota
 *$if not set simsce $set simsce _elecout
@@ -129,7 +129,7 @@ $include %ModPath%/core%modstr%
 $include %SimPath%/sim%simsce%
 
 *========dynamic simulation========
-*$include %DynPath%/dyncal        
+*$include %DynPath%/dyncal
 *=======calibration of BAU
 *1st run
 *$include %DynPath%/dynamic_cal

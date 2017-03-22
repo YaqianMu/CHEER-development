@@ -453,14 +453,17 @@ phi=0.1;
 
 *== technilical change
 *emkup(sub_elec)$wsb(sub_elec)=emkup(sub_elec)*0.1;
-
-*yelec.fx("wind")  = 20;
+*subelec0("wind")=subelec0("wind")*0.5;
+*yelec.fx("solar")  = 15.88;
 
 *tax_s("wind")=0;
+*ret0("wind") =1.097087379;
 
-*ret0("wind") =1+(outputelec0("wind")+100)/outputelec0("wind");
+*ret0("wind") =1+(outputelec0("wind")+10)/outputelec0("wind");
 *clim=4;
 *Switch_fee=0;
+
+*yelec.fx("wind") = 1+(outputelec0("wind")+1*100)/outputelec0("wind");
 
 CHEER.iterlim =100000;
 
@@ -476,9 +479,6 @@ display CHEER.modelstat, CHEER.solvestat,ur.l,clim;
 *check2 =   (tlabor_q0(lm)/(1-ur0(lm))*ur.l(lm))-
 *check2(lm) = (1-ur.l(lm))*tlabor_s0(lm)-    sum(j,qlin.l(lm,j))- sum(sub_elec, qlin_ele.l(lm,sub_elec));
 parameter check;
-check(sub_elec)= outputelec0(sub_elec)*(1-taxelec0(sub_elec))*costelec0(sub_elec)-sum(i,intelec0(i,sub_elec)*emkup(sub_elec))
-                                -sum(lm,laborelec0(lm,sub_elec)*emkup(sub_elec)*labor_w0(lm,"elec"))
-                                -kelec0(sub_elec)*emkup(sub_elec)
-                                -ffelec0(sub_elec)*emkup(sub_elec)
-                                ;
+*check(lm,sub_elec)= (laborelec0(lm,sub_elec))/outputelec0(sub_elec);
+check(lm,sub_elec)=qlin_ele.l(lm,sub_elec)/qelec.l(sub_elec);
 display check;
