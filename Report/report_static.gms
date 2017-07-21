@@ -40,6 +40,7 @@ put reportfile ;
 
 loop(i,
   put sce.tl, rate(z),'2012', 'output', i.tl, '','','output', (qdout.l(i)),CHEER.modelstat / ;
+
   put sce.tl, rate(z),'2012', 'Sectoral price', i.tl, '','','price', (py.l(i)),CHEER.modelstat / ;
   loop(lm,
   put sce.tl, rate(z),'2012', 'employment', i.tl, '',lm.tl,'employment', (qlin.l(lm,i)),CHEER.modelstat / ;
@@ -53,9 +54,10 @@ loop(sub_elec,
   put sce.tl, rate(z),'2012', 'elec_output', '', sub_elec.tl,'','elec_output' , (qelec.l(sub_elec)),CHEER.modelstat / ;
   loop(lm,
   put sce.tl, rate(z),'2012', 'employment','', sub_elec.tl ,lm.tl,'employment', (qlin_ele.l(lm,sub_elec)),CHEER.modelstat / ;
-  put sce.tl, rate(z),'2012', 'employment intensity', sub_elec.tl, '',lm.tl,'employment intensity', (report4(z,lm,sub_elec)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'employment intensity', '', sub_elec.tl,lm.tl,'employment intensity', (report4(z,lm,sub_elec)),CHEER.modelstat / ;
       );
-  put sce.tl, rate(z),'2012', 'employment intensity', sub_elec.tl, '','total','employment intensity', (report4(z,'total',sub_elec)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'employment intensity', '', sub_elec.tl,'total','employment intensity', (report4(z,'total',sub_elec)),CHEER.modelstat / ;
+  put sce.tl, rate(z),'2012', 'output', '', sub_elec.tl,'','output', (qelec.l(sub_elec)),CHEER.modelstat / ;
 ) ;
 
 * ----- emission results
@@ -87,18 +89,24 @@ loop(sub_elec,
 
 
 * ----- employment results
+loop(i,
+loop(sub_elec,
+put sce.tl, rate(z),'2012', 'IEE_id', i.tl, sub_elec.tl,'','IEE_id', (IEE_id(z,i,sub_elec)),CHEER.modelstat / ;
+))
 loop(lm,
   put sce.tl, rate(z),'2012', 'unemployment','' , '',lm.tl,'ur', (UR.l(lm)),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'total employment', '', '',lm.tl,'total employment', (report6(z,lm,"total")),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'aggregated wage', lm.tl, '',lm.tl,'aggregated wage', (pls.l(lm)),CHEER.modelstat / ;
   loop(i,
-  put sce.tl, rate(z),'2012', 'TEE', '', i.tl,lm.tl,'TEE', (TEE(z,lm,i)),CHEER.modelstat / ;
-)
+  put sce.tl, rate(z),'2012', 'TEE', i.tl, '',lm.tl,'TEE', (TEE(z,lm,i)),CHEER.modelstat / ;
+  loop(sub_elec,
+  put sce.tl, rate(z),'2012', 'IEE', i.tl, sub_elec.tl,lm.tl,'IEE', (IEE(z,lm,i,sub_elec)),CHEER.modelstat / ;
+  )
+  )
   loop(sub_elec,
   put sce.tl, rate(z),'2012', 'DEE', '', sub_elec.tl,lm.tl,'DEE', (DEE(z,lm,sub_elec)),CHEER.modelstat / ;
-  put sce.tl, rate(z),'2012', 'IEE', '', sub_elec.tl,lm.tl,'IEE', (IEE(z,lm,sub_elec)),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'TEE', '', sub_elec.tl,lm.tl,'TEE', (TEE(z,lm,sub_elec)),CHEER.modelstat / ;
-)
+  )
   put sce.tl, rate(z),'2012', 'TEE', '', 'total',lm.tl,'TEE', (TEE(z,lm,"total")),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'TEE_DE', '', '',lm.tl,'TEE_DE', (TEE_DE(z,lm,"total")),CHEER.modelstat / ;
   put sce.tl, rate(z),'2012', 'TEE_WE', '', '',lm.tl,'TEE_WE', (TEE_WE(z,lm,"Total")),CHEER.modelstat / ;

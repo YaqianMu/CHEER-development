@@ -1114,27 +1114,32 @@ Order=1
 Decim=7
 PlaneRownr=-1
 
+[RP:SETS_2L]
+1=
+
 [RP:RUN]
 1=
 2=gdx all
 3= 
 
 [MRUFILES]
-1=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\labor_TR_OilGas.gdx
-2=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\trend_TR_output.gdx
-3=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\model/core_1207_Employment.gms
-4=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\Electricity_TR_OilGas.gdx
-5=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\IO_TR_OilGas.gdx
-6=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\Electricity_TR_Output.gdx
-7=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\Data-for-CHEER\IO\IO data.gms
+1=D:\Personal\Desktop\CHEER-development\Data\IO_TR_OilGas.gdx
+2=D:\Personal\Desktop\CHEER-development\Data-for-CHEER\Run.gms
+3=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\labor_TR_OilGas.gdx
+4=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\trend_TR_output.gdx
+5=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\model/core_1207_Employment.gms
+6=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\Electricity_TR_OilGas.gdx
+7=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\IO_TR_OilGas.gdx
+8=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\Data\Electricity_TR_Output.gdx
 
 [OPENWINDOW_1]
-FILE0=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\all.gdx
-FILE1=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\run.gms
-FILE2=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\run.lst
-FILE3=E:\母亚乾在清华\清华学术\paper\Employment & Income\CHEER-model-clear\CHEER\run.lst
+FILE0=D:\Personal\Desktop\CHEER-development\Code\Sets_2L.gms
+FILE1=D:\Personal\Desktop\CHEER-development\Data\Electricity_TR_OilGas.gdx
+FILE2=D:\Personal\Desktop\CHEER-development\run.gms
+FILE3=D:\Personal\Desktop\CHEER-development\run.lst
+FILE4=D:\Personal\Desktop\CHEER-development\run.lst
 MAXIM=0
-TOP=50
-LEFT=50
+TOP=4
+LEFT=57
 HEIGHT=400
 WIDTH=902

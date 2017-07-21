@@ -29,7 +29,7 @@ s all labels in SAM
        NFM
        EII
        OM
-       Air
+       CS
        Tran
        Serv
 
@@ -58,7 +58,7 @@ i(s) commodities in SAM table(produced goods represented by sector name
        NFM
        EII
        OM
-       Air
+       CS
        Tran
        Serv
        /
@@ -78,7 +78,7 @@ ist(i) ist sector
 /ist/
 
 cm(i) sectors selected in carbon market
-/roil,elec,Paper, Chem,CM,IST,NFM,Air/
+/roil,elec,Paper, Chem,CM,IST,NFM/
 
 agrmine(i) agriculture and non-energy mine
 /agri,mine/

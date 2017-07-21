@@ -55,17 +55,19 @@ $if not set Labagg $set labagg _2L
 
 *== bridge variable for data aggregation
 *$if not set datagg $set datagg output
+*gas is split from oilgas
 $if not set datagg $set datagg oilgas
 
 *== bridge variable for model choice
+$if not set modstr $set modstr _Developing
 *$if not set modstr $set modstr _1207_Employment
 *$if not set modstr $set modstr _unemploycost
-$if not set modstr $set modstr _Employment
+*$if not set modstr $set modstr _Employment
 *$if not set modstr $set modstr _fixedwage
 *$if not set modstr $set modstr _ecf
 
 *== bridge variable for simulation choice
-$if not set simsce $set simsce _0310
+$if not set simsce $set simsce _0324
 *$if not set simsce $set simsce _exdosub
 *$if not set simsce $set simsce _quota
 *$if not set simsce $set simsce _elecout
@@ -94,7 +96,7 @@ parameter Switch_umc switch for umemployment cost;
 Switch_umc=1;
 
 parameter Switch_bt switch for backstop technologies ;
-Switch_bt(bt)=0;
+Switch_bt(bt)=1;
 
 parameter Switch_pc switch for process co2 emission ;
 Switch_pc(i)=0;
@@ -126,7 +128,7 @@ $include %ModPath%/core%modstr%
 
 
 *========static simulation========
-$include %SimPath%/sim%simsce%
+*$include %SimPath%/sim%simsce%
 
 *========dynamic simulation========
 *$include %DynPath%/dyncal

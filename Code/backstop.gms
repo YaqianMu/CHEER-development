@@ -3,9 +3,12 @@ $title backstop technology  in China Hybrid Energy and Economics Research (CHEER
 $Ontext
 1) Read electricity data
 
+Backstop Technologies:
+NGCC 天然气联合循环
+
 
 Revision Logs:
-**backstop technology     2015��12��3��
+**backstop technology     
 ** to be finished
 Author:Yaqian Mu, Tsinghua University (muyaqian00@163.com)
 UpDate:    12-2016
@@ -75,9 +78,12 @@ $offtext
 
 parameter  bmkup(bt)  backstop markup factor       /
 ngcc        1.058
-ngcap        1.445
-igcap        1.55     /
+ngcap       1.445
+igcap       1.55     /
 ;
+
+*bmkup(bt)=bmkup(bt)*10;
+
 table esub_bt(*,*) substitution elasticity for backstop technologies
 
         ngcc         ngcap        igcap
